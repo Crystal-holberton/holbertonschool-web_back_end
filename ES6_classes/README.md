@@ -1,0 +1,1 @@
+More learning of ES6 JavaScript
