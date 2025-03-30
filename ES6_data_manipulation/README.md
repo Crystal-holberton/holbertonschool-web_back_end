@@ -1,0 +1,1 @@
+Learning all about data manipulation within ES6
