@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The code is nearly identical to wait_n 
+"""The code is nearly identical to wait_n
 except task_wait_random is being called."""
 import asyncio
 from typing import List
