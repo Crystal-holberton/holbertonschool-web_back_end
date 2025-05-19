@@ -27,7 +27,7 @@ const app = http.createServer(async (req, res) => {
       res.end();
     }
   } else {
-    res.writeHead(404, { "content-type": 'text/plain' });
+    res.writeHead(404, { 'content-type': 'text/plain' });
     res.end('Invalid request');
   }
 });
