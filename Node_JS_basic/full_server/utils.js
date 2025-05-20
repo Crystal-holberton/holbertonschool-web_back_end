@@ -1,21 +1,17 @@
 import fs from 'fs/promises';
 
-const readDatabase = (filePath) => {
-  return fs.readFile(filePath, 'utf8').then((data) => {
-    const lines = data.split('\n').filter(line => line.trim() !== '');
-    lines.shift();
-    const students = {};
-    for (const line of lines) {
-      const parts = line.split(',');
-      if (parts.length < 4) continue;
-      const [firstname, , , field] = parts;
-      if (!students[field]) {
-        students[field] = [];
-      }
-      students[field].push(firstname);
-    }
-    return students;
-  });
-}
+export function readDatabase(filePath) {
+  return fs.readFile(filePath, 'utf8')
+    .then((data) => {
+      const lines = data.trim().split('\n').slice(1);
+      const result = {};
 
-export default readDatabase;
+      lines.forEach((line) => {
+        const [first, , , field] = line.split(',');
+        if (!result[field]) result[field] = [];
+        result[field].push(first);
+      });
+
+      return result;
+    });
+}
