@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 
-export function readDatabase(filePath) {
+function readDatabase(filePath) {
   return fs.readFile(filePath, 'utf8')
     .then((data) => {
       const lines = data.trim().split('\n').slice(1);
@@ -15,3 +15,5 @@ export function readDatabase(filePath) {
       return result;
     });
 }
+
+export default readDatabase;
